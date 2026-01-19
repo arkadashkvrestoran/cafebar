@@ -1,12 +1,75 @@
 <!DOCTYPE html>
 <html lang="sr">
 <head>
-  <meta charset="UTF-8">
-  <title>Restoran Arkadash</title>
+<meta charset="UTF-8">
+<title>Restoran Arkadash</title>
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background-color: #000; /* siyah arka plan */
+    display: flex;
+    font-family: Arial, sans-serif;
+    color: #d4af37; /* altın rengi */
+  }
+
+  /* Sol menü */
+  #left-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 40px;
+    gap: 30px;
+    font-size: 22px;
+    font-weight: bold;
+  }
+
+  #left-menu a {
+    text-decoration: none;
+    color: #d4af37;
+    transition: all 0.3s ease;
+  }
+  #left-menu a:hover {
+    color: #fff;
+  }
+
+  /* Sağ logo bölümü */
+  #right-logo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+    padding-right: 60px;
+  }
+
+  #right-logo img {
+    width: 180px;
+    filter: drop-shadow(0 0 5px #000); /* hafif gölge, gömülmüş hissi */
+  }
+
+  #right-logo h1 {
+    margin-top: 20px;
+    font-size: 28px;
+    letter-spacing: 2px;
+    color: #fff;
+  }
+</style>
 </head>
 <body>
-  <h1>Restoran Arkadash</h1>
-  <p>Dobrodošli!</p>
-  <p>Mediteranski kuhinja u Kraljevo 🇹🇷🇷🇸</p>
+
+  <div id="left-menu">
+    <a href="#menu-section">Meni</a>
+    <a href="#order-section">Wolt & Glovo</a>
+    <a href="#contact-section">Kontaktira</a>
+  </div>
+
+  <div id="right-logo">
+    <img src="arkadash.png" alt="Arkadash Logo">
+    <h1>Restoran Arkadash</h1>
+  </div>
+
 </body>
 </html>
