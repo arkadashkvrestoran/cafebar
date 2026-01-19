@@ -1,9 +1,11 @@
+  
 <!DOCTYPE html>
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
   <title>Arkadash</title>
   <style>
+    /* Sayfa ve arka plan */
     body {
       margin: 0;
       padding: 0;
@@ -30,6 +32,12 @@
       font-weight: bold;
     }
 
+    /* Sağda Kontaktira menüsü */
+    #contact-link {
+      margin-left: auto; /* sağa yasla */
+      margin-right: 60px;
+    }
+
     /* Sağ logo alanı */
     #right-logo {
       flex: 1;
@@ -41,18 +49,18 @@
       padding-right: 100px;
     }
 
-    /* Gri → siyah yıpranmış geçiş */
+    /* Gri → siyah yıpranmış geçiş (gri alan genişletildi) */
     .right-fade {
       position: absolute;
       right: 0;
       top: 0;
-      width: 25%;
+      width: 25%; /* gri alan %25, siyah %75 */
       height: 100%;
       background:
         linear-gradient(
           to right,
-          rgba(100,100,100,0.85) 0%,
-          rgba(40,40,40,0.9) 50%,
+          rgba(50,50,50,0.85) 0%, /* daha koyu gri (uzay grisi) */
+          rgba(30,30,30,0.9) 50%,
           rgba(0,0,0,1) 100%
         );
       z-index: 1;
@@ -71,7 +79,7 @@
     .logo-box {
       width: 320px;
       height: 320px;
-      background-color: rgba(150,150,150,0.85); /* gri tabla */
+      background-color: rgba(50,50,50,0.85); /* uzay grisi */
       display: flex;
       align-items: center;
       justify-content: center;
@@ -79,10 +87,10 @@
       z-index: 2;
       overflow: hidden;
       border-radius: 6px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.6);
+      box-shadow: 0 0 20px rgba(0,0,0,0.6); /* öne çıkarır */
     }
 
-    /* Logo resmi (yuvarlak) */
+    /* İç logo (yuvarlak) */
     .logo-box img {
       width: 85%;
       height: auto;
@@ -101,6 +109,10 @@
         justify-content: space-around;
         width: 100%;
       }
+      #contact-link {
+        margin-left: 0;
+        margin-right: 0;
+      }
       #right-logo {
         padding-right: 0;
         margin-top: 40px;
@@ -113,6 +125,10 @@
   <div id="left-menu">
     <a href="#">Meni</a>
     <a href="#">Wolt & Glovo</a>
+  </div>
+
+  <!-- Sağda Kontaktira -->
+  <div id="contact-link">
     <a href="#">Kontaktira</a>
   </div>
 
@@ -122,7 +138,6 @@
 
     <div class="logo-box">
       <img src="./image_31f54409-2a8f-4836-8d4b-f51c60bfa55720260119_151332.jpg" alt="Arkadash Logo">
-      <!-- Alttaki yazı tamamen kaldırıldı -->
     </div>
   </div>
 </body>
