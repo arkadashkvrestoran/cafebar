@@ -1,179 +1,156 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <title>Arkadash</title>
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      width: 100%;
-      font-family: 'Arial', sans-serif;
-      overflow: hidden;
-    }
+<meta charset="UTF-8">
+<title>Arkadash</title>
 
-    /* Alt tabaka: sol siyah, sağ gri */
-    #background-layer {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(to right, black 50%, rgba(50,50,50,0.85) 50%);
-      z-index: 0;
-      animation: fadeIn 1.5s ease forwards;
-    }
+<style>
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+}
 
-    #background-layer::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image: url("https://grainy-gradients.vercel.app/noise.svg");
-      opacity: 0.15;
-      mix-blend-mode: overlay;
-    }
+/* ARKA PLAN */
+#background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
 
-    /* Ana container: logo ve menüler */
-    #container {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 1;
-      animation: fadeIn 1.5s ease forwards;
-    }
+/* SOL SİYAH – ÖN BASAMAK */
+#black-side {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: black;
+  z-index: 1;
+}
 
-    /* Sol menü */
-    #left-menu {
-      position: absolute;
-      left: 50px;
-      top: 50%;
-      transform: translateY(-50%);
-      display: flex;
-      flex-direction: column;
-      gap: 25px;
-      font-size: 30px; /* büyütüldü */
-    }
+/* SAĞ ALTIN – ALT BASAMAK */
+#gold-side {
+  position: absolute;
+  top: 40px;        /* basamak etkisi */
+  left: 50%;
+  width: 50%;
+  height: calc(100% - 40px);
+  background: #c9a13a;
+  z-index: 0;
+}
 
-    #left-menu a {
-      color: gold;
-      text-decoration: none;
-      font-weight: bold;
-      transition: transform 0.3s, color 0.3s;
-    }
+/* GRAIN / DOKU */
+#gold-side::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+  opacity: 0.12;
+}
 
-    #left-menu a:hover {
-      color: #ffd700;
-      transform: scale(1.1);
-    }
+/* ANA KONTEYNER */
+#container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+}
 
-    /* Sağ Kontaktira */
-    #right-contact {
-      position: absolute;
-      right: 50px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 30px; /* büyütüldü */
-    }
+/* SOL MENÜ */
+#left-menu {
+  position: absolute;
+  left: 60px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
 
-    #right-contact a {
-      color: gold; /* tüm durumlarda gold */
-      text-decoration: none;
-      font-weight: bold;
-      transition: transform 0.3s, color 0.3s;
-    }
+#left-menu a {
+  color: gold;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+}
 
-    #right-contact a:hover {
-      color: #ffd700;
-      transform: scale(1.1);
-    }
+#left-menu a:hover {
+  transform: scale(1.05);
+}
 
-    #right-contact a:visited,
-    #right-contact a:active {
-      color: gold;
-    }
+/* SAĞ KONTAKTIRA */
+#right-contact {
+  position: absolute;
+  right: 60px;
+  top: 50%;
+  transform: translateY(-50%);
+}
 
-    /* Logo */
-    #logo-area {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 2;
-    }
+#right-contact a {
+  color: black;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+}
 
-    .logo-box {
-      width: 380px; /* büyütüldü */
-      height: 380px; /* büyütüldü */
-      background: linear-gradient(to right, rgba(0,0,0,0.85) 50%, rgba(50,50,50,0.85) 50%);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 6px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.6);
-      opacity: 0;
-      animation: fadeIn 1.5s ease forwards 0.5s;
-    }
+#right-contact a:hover {
+  transform: scale(1.05);
+}
 
-    .logo-box img {
-      width: 85%;
-      height: auto;
-    }
+/* LOGO */
+#logo-wrapper {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-    /* Fade-in animasyonu */
-    @keyframes fadeIn {
-      0% { opacity: 0; }
-      100% { opacity: 1; }
-    }
+.logo-box {
+  width: 380px;
+  height: 380px;
+  background: linear-gradient(to right, black 50%, #3a3a3a 50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 25px rgba(0,0,0,0.6);
+}
 
-    /* Responsive */
-    @media (max-width: 900px) {
-      #left-menu, #right-contact {
-        font-size: 26px; /* responsive büyütme */
-      }
-      #left-menu {
-        left: 20px;
-      }
-      #right-contact {
-        right: 20px;
-      }
-      .logo-box {
-        width: 280px;
-        height: 280px;
-      }
-    }
-
-  </style>
+.logo-box img {
+  width: 85%;
+}
+</style>
 </head>
+
 <body>
 
-  <!-- Alt tabaka -->
-  <div id="background-layer"></div>
+<div id="background">
+  <div id="black-side"></div>
+  <div id="gold-side"></div>
+</div>
 
-  <div id="container">
+<div id="container">
 
-    <!-- Sol menü -->
-    <div id="left-menu">
-      <a href="#">Meni</a>
-      <a href="#">Wolt & Glovo</a>
-    </div>
-
-    <!-- Logo -->
-    <div id="logo-area">
-      <div class="logo-box">
-        <img src="image_31f54409-2a8f-4836-8d4b-f51c60bfa55720260119_151332.jpg" alt="Arkadash Logo">
-      </div>
-    </div>
-
-    <!-- Sağ Kontaktira -->
-    <div id="right-contact">
-      <a href="#">Kontaktira</a>
-    </div>
-
+  <div id="left-menu">
+    <a href="#">Meni</a>
+    <a href="#">Wolt & Glovo</a>
   </div>
+
+  <div id="logo-wrapper">
+    <div class="logo-box">
+      <img src="image_31f54409-2a8f-4836-8d4b-f51c60bfa55720260119_151332.jpg">
+    </div>
+  </div>
+
+  <div id="right-contact">
+    <a href="#">Kontaktira</a>
+  </div>
+
+</div>
 
 </body>
 </html>
