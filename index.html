@@ -6,66 +6,67 @@
 <title>Arkadash KV</title>
 
 <style>
-* {
+/* TARAYICI BOŞLUKLARINI TAMAMEN SIFIRLA */
+html, body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
-body {
-  height: 100vh;
-  overflow: hidden;
+* {
+  box-sizing: border-box;
   font-family: Arial, sans-serif;
 }
 
-/* ANA KONTEYNER */
+/* ANA ALAN */
 .page {
   position: relative;
   width: 100%;
   height: 100vh;
 }
 
-/* SİYAH ÜST KATMAN */
-.black-layer {
+/* EN ALT: ALTIN KATMAN */
+.gold-layer {
   position: absolute;
-  top: 0;
-  left: 0;
+  bottom: 0;
+  right: 0;
   width: 50%;
   height: 100%;
+  background: linear-gradient(
+    135deg,
+    #6e5200 0%,
+    #c9a227 30%,
+    #ffd700 50%,
+    #c9a227 70%,
+    #6e5200 100%
+  );
+  z-index: 1;
+}
+
+/* ORTA: SİYAH KATMAN (BİR TIK YUKARIDA) */
+.black-layer {
+  position: absolute;
+  top: 20px; /* basamak hissi */
+  left: 0;
+  width: 50%;
+  height: calc(100% - 20px);
   background: #000;
   z-index: 2;
 }
 
-/* ALTIN ALT KATMAN */
-.gold-layer {
-  position: absolute;
-  top: 25px; /* basamak */
-  left: 50%;
-  width: 50%;
-  height: calc(100% - 25px);
-  background: linear-gradient(
-    135deg,
-    #6e5200 0%,
-    #c9a227 25%,
-    #ffd700 50%,
-    #c9a227 75%,
-    #6e5200 100%
-  );
-  box-shadow: inset 0 10px 20px rgba(0,0,0,0.35);
-  z-index: 1;
-}
-
-/* LOGO */
+/* EN ÜST: LOGO */
 .logo-box {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 3;
+  z-index: 4; /* HER ŞEYİN ÜSTÜNDE */
 }
 
 .logo-box img {
-  width: 280px;
+  width: 290px;
   height: auto;
   display: block;
 }
@@ -78,14 +79,14 @@ body {
   transform: translateY(-50%);
   z-index: 3;
   color: #d4af37;
-  font-size: 26px;
+  font-size: 28px;
 }
 
 .left-menu a {
   display: block;
-  color: #d4af37;
-  text-decoration: none;
   margin-bottom: 18px;
+  text-decoration: none;
+  color: #d4af37;
 }
 
 /* SAĞ KONTAKT */
@@ -96,7 +97,7 @@ body {
   transform: translateY(-50%);
   z-index: 3;
   color: #000;
-  font-size: 26px;
+  font-size: 28px;
   font-weight: bold;
 }
 </style>
@@ -106,8 +107,8 @@ body {
 
 <div class="page">
 
-  <div class="black-layer"></div>
   <div class="gold-layer"></div>
+  <div class="black-layer"></div>
 
   <div class="logo-box">
     <img src="image_31f54409-2a8f-4836-8d4b-f51c60bfa55720260119_151332.jpg" alt="Arkadash Logo">
