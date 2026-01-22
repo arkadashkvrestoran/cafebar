@@ -2,110 +2,100 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Arkadash</title>
+<title>ARKADASH</title>
 
 <style>
-/* Reset ve tam ekran */
-html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Times New Roman", serif;
 }
 
-body {
-  font-family: Arial, sans-serif;
+body, html {
+    width: 100%;
+    height: 100%;
 }
 
-/* Arka plan katmanları */
-#black-side {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 50%;
-  height: 100%;
-  background: black;
-  z-index: 1;
+.page {
+    display: flex;
+    width: 100%;
+    height: 100vh;
 }
 
-#gray-side {
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 50%;
-  height: 100%;
-  background: gray;
-  z-index: 1;
+/* SOL SİYAH ALAN */
+.left {
+    width: 50%;
+    background: #000;
+    display: flex;
+    align-items: center;
+    padding-left: 80px;
 }
 
-/* Logo ortada */
-#logo {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
+.menu {
+    color: #d4af37;
+    font-size: 38px;
+    line-height: 2;
 }
 
-#logo img {
-  width: 300px;
+/* SAĞ MERMER / ALTIN ALAN */
+.right {
+    width: 50%;
+    background: linear-gradient(135deg, #2b2b2b, #c9a84e);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
 
-/* Sol menü */
-#left-menu {
-  position: absolute;
-  left: 50px;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 2;
-  font-size: 26px;
+/* LOGO */
+.logo-box {
+    text-align: center;
 }
 
-#left-menu a {
-  display: block;
-  text-decoration: none;
-  color: gold;
-  margin-bottom: 18px;
+.logo-box img {
+    width: 220px;
+    display: block;
+    margin: 0 auto 20px;
 }
 
-/* Sağ Kontaktira */
-#right-contact {
-  position: absolute;
-  right: 50px;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 2;
-  font-size: 26px;
-  color: gold;
+.brand {
+    color: #d4af37;
+    font-size: 52px;
+    letter-spacing: 6px;
+}
+
+/* KONTAKT */
+.contact {
+    position: absolute;
+    right: 60px;
+    font-size: 30px;
+    color: #000;
 }
 </style>
 </head>
+
 <body>
 
-<div id="black-side"></div>
-<div id="gray-side"></div>
+<div class="page">
 
-<div id="logo">
-  <img src="image_31f54409-2a8f-4836-8d4b-f51c60bfa55720260119_151332.jpg" alt="Arkadash Logo">
+    <div class="left">
+        <div class="menu">
+            MENI<br>
+            WOLT &amp; GLOVO
+        </div>
+    </div>
+
+    <div class="right">
+        <div class="logo-box">
+            <img src="logo.png" alt="Arkadash Logo">
+            <div class="brand">ARKADASH</div>
+        </div>
+
+        <div class="contact">KONTAKT</div>
+    </div>
+
 </div>
 
-<div id="left-menu">
-  <a href="#">MENI</a>
-  <a href="#">WOLT</a>
-  <a href="#">GLOVO</a>
-</div>
-
-<div id="right-contact">
-  <a href="#">KONTAKT</a>
-</div>
-#right-contact a {
-  color: #000;
-}
-
-#right-contact a:visited {
-  color: #000;
-}
 </body>
 </html>
