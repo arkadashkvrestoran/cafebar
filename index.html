@@ -2,86 +2,100 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Arkadash</title>
+<title>ARKADASH</title>
 
 <style>
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Times New Roman", serif;
 }
 
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+/* MERMER ARKA PLAN */
 body {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: url("file_000000009fa4720ab691244257d9bfdb.png") center center / cover no-repeat;
-  font-family: Arial, sans-serif;
+    background: url("file_000000009fa4720ab691244257d9bfdb.png") no-repeat center center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* LOGO */
+/* ANA KAPSAYICI */
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* LOGO ORTADA */
 .logo {
-  position: absolute;
-  width: 280px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.logo img {
+    width: 280px; /* sadece biraz büyüttük */
 }
 
 /* SOL MENÜ */
 .left-menu {
-  position: absolute;
-  left: 8%;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+    position: absolute;
+    top: 50%;
+    left: 80px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
 }
 
-.left-menu a {
-  text-decoration: none;
-  font-size: 22px;
-  font-weight: 600;
-  color: #d4af37; /* altın */
-  transition: 0.3s ease;
-}
-
-.left-menu a:hover {
-  opacity: 0.6;
-  transform: translateX(5px);
+.left-menu div {
+    color: #d4af37; /* altın */
+    font-size: 36px;
+    margin-bottom: 20px;
 }
 
 /* SAĞ KONTAKT */
 .right-menu {
-  position: absolute;
-  right: 8%;
+    position: absolute;
+    top: 50%;
+    right: 80px;
+    transform: translateY(-50%);
 }
 
-.right-menu a {
-  text-decoration: none;
-  font-size: 22px;
-  font-weight: 600;
-  color: white;
-  transition: 0.3s ease;
-}
-
-.right-menu a:hover {
-  opacity: 0.6;
-  transform: translateX(-5px);
+.right-menu div {
+    color: #ffffff; /* beyaz yaptık */
+    font-size: 36px;
 }
 </style>
-
 </head>
+
 <body>
 
-<img src="file_0000000088fc724383a1ca891eda360e.png" class="logo">
+<div class="container">
 
-<div class="left-menu">
-  <a href="#">Meni</a>
-  <a href="#">Wolt</a>
-  <a href="#">Glovo</a>
-</div>
+    <!-- SOL -->
+    <div class="left-menu">
+        <div>MENI</div>
+        <div>WOLT & GLOVO</div>
+    </div>
 
-<div class="right-menu">
-  <a href="#">Kontakt</a>
+    <!-- ORTA LOGO -->
+    <div class="logo">
+        <img src="file_0000000088fc724383a1ca891eda360e.png" alt="Logo">
+    </div>
+
+    <!-- SAĞ -->
+    <div class="right-menu">
+        <div>KONTAKT</div>
+    </div>
+
 </div>
 
 </body>
