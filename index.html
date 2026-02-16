@@ -96,10 +96,6 @@ body {
     text-shadow: 0 0 8px rgba(212,175,55,0.7);
 }
 
-.dropdown:hover .dropdown-content {
-    display: flex;
-}
-
 /* SAĞ KONTAKT */
 .right-menu {
     position: absolute;
@@ -131,8 +127,8 @@ body {
     <!-- SOL MENÜ DROP-DOWN -->
     <div class="left-menu">
         <div class="dropdown">
-            <button class="dropbtn">WOLT & GLOVO</button>
-            <div class="dropdown-content">
+            <button class="dropbtn" onclick="toggleDropdown()">WOLT & GLOVO</button>
+            <div class="dropdown-content" id="dropdownMenu">
                 <a href="https://wolt.com/en/srb/kraljevo/restaurant/arkadash-kebab-doner-ufte-turski-restoran" target="_blank">WOLT</a>
                 <a href="https://glovoapp.com/en/rs/kraljevo/stores/arkadash-turkish-food?content=menu-c.1868902751&section=fried-s.5302321289" target="_blank">GLOVO</a>
             </div>
@@ -150,6 +146,17 @@ body {
     </div>
 
 </div>
+
+<script>
+function toggleDropdown() {
+    const menu = document.getElementById("dropdownMenu");
+    if (menu.style.display === "flex") {
+        menu.style.display = "none";
+    } else {
+        menu.style.display = "flex";
+    }
+}
+</script>
 
 </body>
 </html>
